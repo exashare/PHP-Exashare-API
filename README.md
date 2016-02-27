@@ -18,6 +18,7 @@ Account Info
 ------------
 
 ```
+
 <?php
 include 'ExashareAPI.php';
 
@@ -37,4 +38,63 @@ if(!$result->{error}){
     echo $result->{error};
 }
 ?>
+
+```
+
+Add URL Upload
+--------------
+
+```
+
+<?php
+include 'ExashareAPI.php';
+
+$api = new ExashareAPI;
+
+$result = $api->UploadURL(
+  [
+    key => '1kdgzttjfyzxcg',
+    url => 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+    folder => 'name_your_folder'
+  ]
+);
+
+if(!$result->{error}){
+    echo 'Queue ID: ' . $result->{queue_id};
+}else{
+    echo $result->{error};
+}
+?>
+
+```
+
+Check URL Upload
+----------------
+
+```
+
+<?php
+include 'ExashareAPI.php';
+
+$api = new ExashareAPI;
+
+$result = $api->CheckUploadURL(
+  [
+    key => '1kdgzttjfyzxcg',
+    id => 'queue_id'
+  ]
+);
+
+if(!$result->{error}){
+    echo 'Status: ' . $result->{status};
+    echo '<br />';
+    echo 'URL: ' . $result->{url};
+    echo '<br />';
+    echo 'File Code: ' . $result->{file_code};
+    echo '<br />';
+}else{
+    echo $result->{error};
+}
+?>
+
 ```
