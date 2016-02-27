@@ -123,7 +123,7 @@ class ExashareAPI {
     }
     
     private function Request($hash){
-        $param = null;
+        $param = 'version=0.01';
         foreach($hash as $key => $value){
             if($param){
                 $param .= '&' . $key . '=' . $value;
@@ -132,7 +132,7 @@ class ExashareAPI {
             }
         }
         
-        $url = "http://exashare.com/cgi-bin/xapi.cgi";
+        $url = 'http://exashare.com/cgi-bin/xapi.cgi';
         $url .= $param ? $param : '';
         
         curl_setopt($this->curl, CURLOPT_URL, $url);
