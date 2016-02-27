@@ -118,7 +118,7 @@ class ExashareAPI {
     }
     
     private function Request($hash){
-        $param = 'version=0.01';
+        $param = '?version=0.01';
         foreach($hash as $key => $value){
             if($param){
                 $param .= '&' . $key . '=' . $value;
