@@ -36,4 +36,5 @@ if(!$result->{error}){
 }else{
     echo $result->{error};
 }
+?>
 ```
