@@ -140,7 +140,7 @@ include 'ExashareAPICurl.php';
 
 $api = new ExashareAPI;
 
-$result = $api->GetUploadServer(
+$result = $api->CheckFiles(
   [
     key => 'your_key',
     files => [
@@ -153,7 +153,94 @@ $result = $api->GetUploadServer(
 
 if(!$result->{error}){
     foreach($result as $row){
-      echo 'File Code: ' . $result->{file_code};
+      echo 'File Code: ' . $row->{file_code};
+      echo '<br />';
+    }
+}else{
+    echo $result->{error};
+}
+?>
+
+```
+
+Renew File code
+---------------
+
+```
+
+<?php
+include 'ExashareAPICurl.php';
+
+$api = new ExashareAPI;
+
+$result = $api->RenewFile(
+  [
+    key => 'your_key',
+    file_code => 'a1a1a1a1a1a1'
+  ]
+);
+
+if(!$result->{error}){
+    echo 'File Code: ' . $result->{file_code};
+}else{
+    echo $result->{error};
+}
+?>
+
+```
+
+Clone File code
+---------------
+
+```
+
+<?php
+include 'ExashareAPICurl.php';
+
+$api = new ExashareAPI;
+
+$result = $api->CloneFile(
+  [
+    file_code => '1a1a1a1a1a1a',
+    folder => 'name_your_folder',
+    new_title => 'new_title_to_file_cloned'
+  ]
+);
+
+if(!$result->{error}){
+    echo 'File Code: ' . $result->{file_code};
+}else{
+    echo $result->{error};
+}
+?>
+
+```
+
+Check Files DMCA
+----------------
+
+```
+
+<?php
+include 'ExashareAPICurl.php';
+
+$api = new ExashareAPI;
+
+$result = $api->CheckFilesDMCA(
+  [
+    key => 'your_key',
+    date => 'YYYY-MM-DD',
+    order => 'down'
+  ]
+);
+
+if(!$result->{error}){
+    foreach($result as $row){
+      echo 'File Code: ' . $row->{file_code};
+      echo '<br />';
+      echo 'Date DMCA Created: ' . $row->{dmca_created};
+      echo '<br />';
+      echo 'Date DMCA expire: ' . $row->{dmca_expire};
       echo '<br />';
     }
 }else{
