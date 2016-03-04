@@ -20,7 +20,7 @@ Account Info
 ```
 
 <?php
-include 'ExashareAPI.php';
+include 'ExashareAPICurl.php';
 
 $api = new ExashareAPI;
 
@@ -47,7 +47,7 @@ Add URL Upload
 ```
 
 <?php
-include 'ExashareAPI.php';
+include 'ExashareAPICurl.php';
 
 $api = new ExashareAPI;
 
@@ -74,7 +74,7 @@ Check URL Upload
 ```
 
 <?php
-include 'ExashareAPI.php';
+include 'ExashareAPICurl.php';
 
 $api = new ExashareAPI;
 
