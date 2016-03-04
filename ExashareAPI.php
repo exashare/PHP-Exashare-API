@@ -105,7 +105,6 @@ class ExashareAPI {
         
         $hash[op] = 'files_dmca';
         $hash[key] = $data[0][key];
-        $hash[url] = $data[0][url];
         if($data[0][date]){
             $hash[date] = $data[0][date];
         }
