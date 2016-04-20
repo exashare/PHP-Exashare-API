@@ -117,7 +117,7 @@ class ExashareAPI {
     }
     
     private function Request($hash){
-        $param = '?version=0.01';
+        $param = '?version=0.02';
         foreach($hash as $key => $value){
             if($param){
                 $param .= '&' . $key . '=' . $value;
@@ -126,7 +126,7 @@ class ExashareAPI {
             }
         }
         
-        $url = 'http://exashare.com/cgi-bin/xapi.cgi';
+        $url = 'http://exashare.com/api';
         $url .= $param ? $param : '';
         
         $this->result = file_get_contents($url);
